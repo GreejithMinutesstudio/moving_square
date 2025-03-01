@@ -40,26 +40,6 @@ class HomeController extends GetxController {
     }
   }
 
-  /// Move the square left or right with animation
-  // Future<void> moveSquare(bool toRight) async {
-  //   if (isAnimating.value) return;
-  //   isAnimating.value = true;
-  //   animationDuration.value = 1; // Enable animation for movement
-  //
-  //   double targetPosition = toRight ? screenWidth.value - squareSize.value : 0;
-  //   double step = (targetPosition - position.value).abs() / 50;
-  //
-  //   Timer.periodic(const Duration(milliseconds: 10), (timer) {
-  //     if ((toRight && position.value >= targetPosition) ||
-  //         (!toRight && position.value <= targetPosition)) {
-  //       position.value = targetPosition;
-  //       isAnimating.value = false;
-  //       timer.cancel();
-  //     } else {
-  //       position.value += toRight ? step : -step;
-  //     }
-  //   });
-  // }
   Future<void> moveSquare(bool toRight) async {
     if (isAnimating.value) return; // Prevent multiple taps
     isAnimating.value = true;
@@ -81,11 +61,4 @@ class HomeController extends GetxController {
       isAnimating.value ||
       position.value >= screenWidth.value - squareSize.value;
 
-  // /// Check if Left button should be disabled
-  // bool get isLeftDisabled => position.value <= 0 || isAnimating.value;
-  //
-  // /// Check if Right button should be disabled
-  // bool get isRightDisabled =>
-  //     position.value >= screenWidth.value - squareSize.value ||
-  //     isAnimating.value;
 }
